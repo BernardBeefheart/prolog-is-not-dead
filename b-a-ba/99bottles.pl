@@ -1,11 +1,22 @@
+/*
+ * 99bottles.pl
+ * compilation : swipl --goal=main --stand_alone=true -o 99bottles -c 99bottles.pl
+ */
 
-bottles(0):-!.
-bottles(X):-
+ibottles(0):-
+    writef('C\'est FINI! \n'),
+    !.
+ibottles(X):-
     writef('%t bottles of beer on the wall \n',[X]),
     writef('%t bottles of beer\n',[X]),
     write('Take one down, pass it around\n'),
     succ(XN,X),
     writef('%t bottles of beer on the wall \n\n',[XN]),
-    bottles(XN).
+    ibottles(XN).
  
-:- bottles(99).
+ bottles(X):-
+    writef('we start with %t bottles of beer on the wall \n',[X]),
+    ibottles(X).
+
+main:- bottles(4),
+	halt.
