@@ -3,17 +3,11 @@
  * compilation : swipl --goal=main --stand_alone=true -o try-main -c main.pl
  */
  
- /* :- initialization main. */
-
-eval :-
+showArgs :-
         current_prolog_flag(argv, Argv),
         concat_atom(Argv, ' ', SingleArg),
-        term_to_atom(Term, SingleArg),
-        Val is Term,
-        format('~w~n', [Val]).
+        writef('-> %t\n', [SingleArg]).
 
 main :-
-        catch(eval, E, (print_message(error, E), fail)),
+        showArgs,
         halt.
-main :-
-        halt(1).
