@@ -35,19 +35,22 @@ setPere([P]) :-
 	writef('Il manque un enfant dans la liste des pères, %t est sans enfants\n', [P]).
 setPere([Pere | Tail]) :-
 	car(Tail, Enfant),
-	assert(pere(Pere, Enfant)).
+	assert(pere(Pere, Enfant)),
+	cdr(Tail, Reste),
+	setPere(Reste).
 	
 setMere([]).
 setMere([P]) :-
 	writef('Il manque un enfant dans la liste des mères, %t est sans enfants\n', [P]).
 setMere([Mere | Tail]) :-
 	car(Tail, Enfant),
-	assert(mere(Mere, Enfant)).
+	assert(mere(Mere, Enfant)),
+	cdr(Tail, Reste),
+	setMere(Reste).
 
 enfantDe(Enfant, Pere, Mere) :- 
 	mere(Mere, Enfant), 
-	pere(Pere, Enfant),
-	!.
+	pere(Pere, Enfant).
 
 findParents(People) :-
 	writef('findParents homme\n'),
@@ -62,7 +65,7 @@ findParents(People) :-
 	femme(People),
 	writef('%t est une fille\n', [People]),
 	enfantDe(People, Pere, Mere),
-	writef('%t est fille de %t et %t\n', [People], [Pere], [Mere]).
+	writef('%t est fille de %t et %t\n', [People, Pere, Mere]).
 	
 	
 main :-
