@@ -2,27 +2,15 @@
 %% assert-retract.pl
 %% programme de test pour les prédicat assert, retract, dynamic.
 
+:- use_module(tools).
+:- use_module(show_list).
+
 :- dynamic homme/1.
 :- dynamic femme/1.
 :- dynamic pere/2.
 :- dynamic mere/2.
 
-car([], _) :- fail.
-car([Head | _], Head).
 
-cdr([], _) :- fail.
-cdr([_ | Tail], Tail).
-
-ishowList([]).
-ishowList([Head | Tail ]) :-
-	writef(' -> %t\n', [Head]),
-	ishowList(Tail).
-	
-showList(List, Title) :-
-	writef('Liste : %t\n', [Title]),
-	ishowList(List),
-	writef('Fin de la liste %t\n', [Title]).
-	
 homme(bernard).
 homme(jean).
 femme(monique).
@@ -81,6 +69,7 @@ findParents(People) :-
 	writef('%t est une fille\n', [People]),
 	enfantDe(People, Pere, Mere),
 	writef('%t est fille de %t et %t\n', [People, Pere, Mere]).
+	
 	
 findAllChilds :-
 	findall(Person, enfantDe(Person, _, _), Bag),
