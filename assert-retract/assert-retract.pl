@@ -5,12 +5,13 @@
 :- use_module(tools).
 :- use_module(show_list).
 
+%% les prédicats suivants sont déjà en partie existant
 :- dynamic homme/1.
 :- dynamic femme/1.
 :- dynamic pere/2.
 :- dynamic mere/2.
 
-
+%% les données
 homme(bernard).
 homme(jean).
 femme(monique).
@@ -18,6 +19,7 @@ femme(monique).
 pere(jean, bernard).
 mere(monique, bernard).
 
+%% les règles
 setHomme([]).
 setHomme([Head | Tail]) :-
 	assert(homme(Head)),
@@ -32,41 +34,31 @@ ensureHomme(Pere) :- homme(Pere); setHomme([Pere]).
 ensureFemme(Pere) :- femme(Pere); setFemme([Pere]).
 
 setPere([]).
-setPere([P]) :-
+setPere([Personne]) :-
 	writef('Il manque un enfant dans la liste des pères, %t est sans enfants\n', [P]).
-setPere([Pere | Tail]) :-
+setPere([Pere, Enfant | Tail]) :-
 	ensureHomme(Pere),
-	car(Tail, Enfant),
 	assert(pere(Pere, Enfant)),
-	cdr(Tail, Reste),
-	setPere(Reste).
+	setPere(Tail).
 	
 setMere([]).
-setMere([P]) :-
+setMere([Personne]) :-
 	writef('Il manque un enfant dans la liste des mères, %t est sans enfants\n', [P]).
-setMere([Mere | Tail]) :-
+setMere([Mere, Enfant | Tail]) :-
 	ensureFemme(mere),
-	car(Tail, Enfant),
 	assert(mere(Mere, Enfant)),
-	cdr(Tail, Reste),
-	setMere(Reste).
+	setMere(Tail).
 
 enfantDe(Enfant, Pere, Mere) :- 
 	mere(Mere, Enfant), 
 	pere(Pere, Enfant).
 
 findParents(People) :-
-	writef('findParents homme\n'),
-	writef('recherche (homme) de %t\n', [People]),
 	homme(People),
-	writef('%t est un garçon\n', [People]),
 	enfantDe(People, Pere, Mere),
 	writef('%t est fils de %t et %t\n', [People, Pere, Mere]).
 findParents(People) :-
-	writef('findParents femme\n'),
-	writef('recherche (femme) de %t\n', [People]),
 	femme(People),
-	writef('%t est une fille\n', [People]),
 	enfantDe(People, Pere, Mere),
 	writef('%t est fille de %t et %t\n', [People, Pere, Mere]).
 	
