@@ -70,7 +70,7 @@ findAllChilds :-
 main :-
 	writef('---------------------------------------------\n'),
 	writef('Rempli la base des hommes\n'),
-	setHomme([jeanluc, claude, jeanpierre]),
+	setHomme([jeanluc, jeanpierre]),
 	writef('Rempli la base des femmes\n'),
 	setFemme([myriam, claire, maryse, fabienne]),
 	writef('Rempli la base des pères\n'),
