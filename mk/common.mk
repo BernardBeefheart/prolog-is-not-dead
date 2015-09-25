@@ -15,3 +15,5 @@ $(EXE): $(SOURCES)
 
 clean:
 	$(RM) -fv $(EXE)
+
+.PHONY: all clean
