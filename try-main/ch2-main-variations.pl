@@ -1,5 +1,5 @@
 /*
- * main.pl
+ * ch2-main-variations.pl
  * compilation : swipl --goal=main --stand_alone=true -o try-main -c showargs.pl main.pl
  */
 

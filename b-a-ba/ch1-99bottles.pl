@@ -1,5 +1,5 @@
 /*
- * 99bottles.pl
+ * ch1-99bottles.pl
  * compilation : swipl --goal=main --stand_alone=true -o 99bottles -c 99bottles.pl
  */
 
