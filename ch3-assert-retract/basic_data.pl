@@ -3,8 +3,9 @@
 %% programme de test pour les prédicat assert, retract, dynamic.
 %% ======================================================================
 
-module(basic_datas,
-	[homme/1, femme/1, pere/2, mere/2]).
+:- module(basic_data,
+	[homme/1, femme/1, 
+	pere/2, mere/2]).
 
 %% les prédicats suivants sont déjà en partie existant
 %% ils sot donc dynamic en vue de leurs modifications
