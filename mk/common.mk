@@ -3,7 +3,7 @@
 # ======================================================================
 
 PL = swipl
-OPTIONS =  --goal=main --stand_alone=true
+OPTIONS =  --goal=main --stand_alone=true -O
 
 # EXE est déjà défini
 # SOURCES aussi
