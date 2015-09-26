@@ -35,7 +35,7 @@ ensureFemme(Pere) :- femme(Pere); setFemme([Pere]).
 
 setPere([]).
 setPere([Personne]) :-
-	writef('Il manque un enfant dans la liste des pères, %t est sans enfants\n', [P]).
+	writef('Il manque un enfant dans la liste des pères, %t est sans enfants\n', [Personne]).
 setPere([Pere, Enfant | Tail]) :-
 	ensureHomme(Pere),
 	assert(pere(Pere, Enfant)),
@@ -43,7 +43,7 @@ setPere([Pere, Enfant | Tail]) :-
 	
 setMere([]).
 setMere([Personne]) :-
-	writef('Il manque un enfant dans la liste des mères, %t est sans enfants\n', [P]).
+	writef('Il manque un enfant dans la liste des mères, %t est sans enfants\n', [Personne]).
 setMere([Mere, Enfant | Tail]) :-
 	ensureFemme(mere),
 	assert(mere(Mere, Enfant)),

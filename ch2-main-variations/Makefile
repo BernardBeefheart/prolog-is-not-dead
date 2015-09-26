@@ -2,7 +2,7 @@
 # Makefile
 # ======================================================================
 
-EXE = ch3-assert-retract
-SOURCES = ch3-assert-retract.pl  show_list.pl
+EXE = ch2-main-variations
+SOURCES = showargs.pl ch2-main-variations.pl 
 
 include ../mk/common.mk
