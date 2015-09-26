@@ -1,23 +1,12 @@
-%%
+%% ======================================================================
 %% assert-retract.pl
 %% programme de test pour les prédicat assert, retract, dynamic.
+%% ======================================================================
 
-:- use_module(tools).
+%% modules
 :- use_module(show_list).
+:- use_module(basic_datas).
 
-%% les prédicats suivants sont déjà en partie existant
-:- dynamic homme/1.
-:- dynamic femme/1.
-:- dynamic pere/2.
-:- dynamic mere/2.
-
-%% les données
-homme(bernard).
-homme(jean).
-femme(monique).
-
-pere(jean, bernard).
-mere(monique, bernard).
 
 %% les règles
 setHomme([]).
