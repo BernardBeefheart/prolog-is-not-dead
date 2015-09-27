@@ -12,15 +12,18 @@ findParents(People) :-
 	homme(People),
 	!,
 	enfantDe(People, Pere, Mere),
-	writef('%t est fils de %t et %t\n', [People, Pere, Mere]).
+	writef('%t est fils de %t et %t\n', [People, Pere, Mere]),
+	!.
 findParents(People) :-
 	writef('---------------------------------------------\n'),
 	writef('recherche des parents (fille) de %t\n', [People]),
 	femme(People),
 	!,
 	enfantDe(People, Pere, Mere),
-	writef('%t est fille de %t et %t\n', [People, Pere, Mere]).
+	writef('%t est fille de %t et %t\n', [People, Pere, Mere]),
+	!.
 findParents(People) :-
+	writef('---------------------------------------------\n'),
 !,
 	writef('%t n'est l'enfant de personne!\n', [People]).
 	

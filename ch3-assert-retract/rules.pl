@@ -34,7 +34,7 @@ setMere([]).
 setMere([Personne]) :-
 	writef('Il manque un enfant dans la liste des mères, %t est sans enfants\n', [Personne]).
 setMere([Mere, Enfant | Tail]) :-
-	ensureFemme(mere),
+	ensureFemme(Mere),
 	assertz(mere(Mere, Enfant)),
 	setMere(Tail).
 

@@ -20,6 +20,7 @@ main :-
 	%% halt(1957),
 	
 	findParents(claire),
+	%% halt,
 	writef('---------------------------------------------\n'),
 	writef('recherche des parents de Bernard\n'),
 	findParents(bernard),
