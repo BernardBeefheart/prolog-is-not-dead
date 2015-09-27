@@ -34,13 +34,17 @@ fillFemmes :-
 	setFemme(X),
 	getMeres(Y),
 	setFemme(Y).	
+
+fillParents(Title, Setter) :-
+	writef("%t\n",[Title]),
+	call(Setter).
 	
 fillPeres :-
-	writef('Rempli la base des pères\n'),
-	all_pereDe(X),
-	setPere(X).
+	all_pereDe(Peres),
+	Setter =.. [setPere, Peres],
+	fillParents('Rempli la base des pères', Setter).
 		
 fillMeres :-
-	writef('Rempli la base des mères\n'),
-	all_mereDe(X),
-	setMere(X).
+	all_mereDe(Meres),
+	Setter =.. [setMere, Meres],
+	fillParents('Rempli la base des mères', Setter).

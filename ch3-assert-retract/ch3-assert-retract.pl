@@ -9,24 +9,31 @@
 :- use_module(basic_data).
 :- use_module(data_filler).
 
-
-main :-
+%% remplissage de la base
+fillBase :-
 	writef('---------------------------------------------\n'),
+	writef('Remplissage de la base\n'),
 	fillFemmes, fillHommes,
-	fillPeres, fillMeres,
+	fillPeres, fillMeres.
 	
+%% affiche l'ensemble des individus de la base	
+showPeople :-
 	findAllHommes,
-	findAllFemmes,
-	%% halt(1957),
+	findAllFemmes.
 	
+%% point d'entrée du programme
+main :-
+	fillBase,
+	
+	showPeople,
+	
+	%% quelques tests de manipulation de la base
 	findParents(claire),
-	%% halt,
-	writef('---------------------------------------------\n'),
-	writef('recherche des parents de Bernard\n'),
+
 	findParents(bernard),
-	writef('---------------------------------------------\n'),
-	writef('recherche des parents de Myriam\n'),
+	
 	findParents(myriam),
+
 	writef('---------------------------------------------\n'),
 	writef('recherche de tous les enfants et de leurs parents\n'),
 	findAllChilds,

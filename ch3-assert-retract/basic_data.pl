@@ -24,6 +24,7 @@ femme(monique).
 pere(jean, bernard).
 mere(monique, bernard).
 
+%% les listes permettant de fabriquer la base
 all_hommes([jeanpierre, jeanluc]).
 all_femmes([fabienne, alice, claire, maryse]).
 all_pereDe([jean, jeanluc, 
