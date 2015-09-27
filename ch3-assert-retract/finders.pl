@@ -20,6 +20,10 @@ findParents(People) :-
 	!,
 	enfantDe(People, Pere, Mere),
 	writef('%t est fille de %t et %t\n', [People, Pere, Mere]).
+findParents(People) :-
+!,
+	writef('%t n'est l'enfant de personne!\n', [People]).
+	
 	
 findAllHommes :-
 	findall(Person, homme(Person), Bag),
