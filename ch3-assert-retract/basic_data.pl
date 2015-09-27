@@ -25,7 +25,7 @@ pere(jean, bernard).
 mere(monique, bernard).
 
 all_hommes([jeanpierre, jeanluc]).
-all_femmes([fabienne, myriam, alice, claire, maryse]).
+all_femmes([fabienne, alice, claire, maryse]).
 all_pereDe([jean, jeanluc, 
 		claude, myriam, 
 		claude, fabienne, 
