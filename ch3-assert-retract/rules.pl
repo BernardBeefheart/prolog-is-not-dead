@@ -8,18 +8,19 @@
 		 setPere/1, setMere/1,
 		 enfantDe/3]).
 %% les règles
+ensureHomme(Pere) :- homme(Pere); assert(homme(Pere)).
+ensureFemme(Mere) :- femme(Mere); assert(femme(Mere)).
+
 setHomme([]).
-setHomme([Head | Tail]) :-
-	assert(homme(Head)),
+setHomme([Homme | Tail]) :-
+	ensureHomme(Homme),
 	setHomme(Tail).
 	
 setFemme([]).
-setFemme([Head | Tail]) :-
-	assert(femme(Head)),
+setFemme([Femme | Tail]) :-
+	ensureFemme(Femme),
 	setFemme(Tail).
 
-ensureHomme(Pere) :- homme(Pere); setHomme([Pere]).
-ensureFemme(Pere) :- femme(Pere); setFemme([Pere]).
 
 setPere([]).
 setPere([Personne]) :-
