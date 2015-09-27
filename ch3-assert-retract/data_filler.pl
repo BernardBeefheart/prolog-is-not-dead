@@ -6,20 +6,20 @@
 		[fillHommes/0, fillFemmes/0, fillPeres/0, fillMeres/0]).
 
 :- use_module(basic_data).
+
+%% fonction d'aide pour les deux suivantes
+igetParents([], _).
+igetParents([Pere, _ | Tail], X) :- igetParents(Tail, [Pere | X]).
 		
-igetPeres([], _).
-igetPeres([Pere, _ | Tail], X) :- igetPeres(Tail, [Pere | X]).
-		
+%% création de la liste des pères
 getPeres(X) :-
 	all_pereDe(Y), 
-	igetPeres(Y, X).
+	igetParents(Y, X).
 	
-igetMeres([], _).
-igetMeres([Mere, _ | Tail], X) :- igetMeres(Tail, [Mere | X]).
-		
+%% création de la liste des mères
 getMeres(X) :-
 	all_mereDe(Y), 
-	igetMeres(Y, X).
+	igetParents(Y, X).
 	
 fillHommes :- 
 	writef('Rempli la base des hommes\n'),
