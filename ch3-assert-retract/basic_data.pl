@@ -33,6 +33,7 @@ all_pereDe([jean, jeanluc,
 		alain, claire,
 		marcel, monique]).
 all_mereDe([maryse, myriam, 
+		monique, jeanluc,
 		maryse, fabienne, 
 		myriam, claire,
 		alice, monique]).		
