@@ -21,7 +21,7 @@ killDups([_ | Tail], Acc, LstOut) :-
 	
 	
 listKillDups(LstIn, LstOut) :-
-	retractall(inList(X)),
+	retractall(inList(_)),
 	killDups(LstIn, [], LstOut). 
 	
 %%% tests
