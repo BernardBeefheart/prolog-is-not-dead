@@ -7,9 +7,17 @@
 		 setFemme/1, ensureFemme/1,
 		 setPere/1, setMere/1,
 		 enfantDe/3]).
+
 %% les règles
-ensureHomme(Pere) :- homme(Pere); asserta(homme(Pere)).
-ensureFemme(Mere) :- femme(Mere); asserta(femme(Mere)).
+%% pour ne pas utiliser "ou" (;), on utilise \+ (not)
+%% ce qui implique que si Pere est déjà dans la base, on retourne False,
+%% d'où la seconde ligne :
+%% ensureHomme(_Pere).
+ensureHomme(Pere) :- \+homme(Pere), asserta(homme(Pere)).
+ensureHomme(_Pere).
+
+ensureFemme(Mere) :- \+femme(Mere), asserta(femme(Mere)).
+ensureFemme(_Mere).
 
 setHomme([]).
 setHomme([Homme | Tail]) :-

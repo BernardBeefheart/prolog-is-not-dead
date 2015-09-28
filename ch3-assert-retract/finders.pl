@@ -10,6 +10,7 @@
 :- use_module(show_list).
 :- use_module(basic_data).
 :- use_module(rules).
+:- use_module(listKillDups).
 
 findParents(People) :-
 	writef('---------------------------------------------\n'),
@@ -42,10 +43,12 @@ findAllChilds :-
 	
 findAllMeres :-
 	findall(Person, mere(Person, _), Bag),
-	showList(Bag, 'les mères').
+	listKillDups(Bag, OutBag),
+	showList(OutBag, 'les mères').
 
 findAllPeres :-
 	findall(Person, pere(Person, _), Bag),
-	showList(Bag, 'les pères').
+	listKillDups(Bag, OutBag),
+	showList(OutBag, 'les pères').
 
 
